@@ -1,25 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { connect } from 'react-redux';
+import ListTask from './components/ListTask';
+import AddTask from './components/AddTask';
+import { addTask, toggleDone, deleteTask } from './actions';
 
-function App() {
+const App = ({ tasks, addTask, toggleDone, deleteTask }) => {
+  const handleAddTask = (description) => {
+    addTask(description);
+  };
+
+  const handleToggleDone = (id) => {
+    toggleDone(id);
+  };
+
+  const handleDeleteTask = (id) => {
+    deleteTask(id);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <AddTask onAdd={handleAddTask} />
+      <ListTask tasks={tasks} filter={'all'} onToggleDone={handleToggleDone} onDelete={handleDeleteTask} />
+      <button onClick={() => setFilter('done')}>Filter done</button>
+      <button onClick={() => setFilter('not')}>Filter not done</button>
+      <button onClick={() => setFilter('all')}>Filter all</button>
     </div>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => ({
+  tasks: state.tasks,
+});
+
+const mapDispatchToProps = {
+  addTask,
+  toggleDone,
+  deleteTask,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
+
