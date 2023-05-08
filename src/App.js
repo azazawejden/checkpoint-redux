@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ListTask from './components/ListTask';
-import AddTask from './components/AddTask';
+import ListTask from "./components/ListTask";
+import AddTask from "./components/AddTask";
 import { addTask, toggleDone, deleteTask } from './actions';
 
 const App = ({ tasks, addTask, toggleDone, deleteTask }) => {
