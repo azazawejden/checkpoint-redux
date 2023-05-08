@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ListTask from "./components/ListTask";
 import AddTask from "./components/AddTask";
-import { addTask, toggleDone, deleteTask } from './actions';
+import { addTask, toggleDone, deleteTask } from "./js/actions";
 
 const App = ({ tasks, addTask, toggleDone, deleteTask }) => {
   const handleAddTask = (description) => {

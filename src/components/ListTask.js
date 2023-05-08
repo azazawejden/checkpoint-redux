@@ -16,7 +16,7 @@ const ListTask = () => {
           <input
             type="radio"
             value="all"
-            checked={isDoneFilter === 'all'}
+            checked={setIsDoneFilter === 'all'}
             onChange={() => setIsDoneFilter('all')}
           />
           All Tasks
@@ -25,7 +25,7 @@ const ListTask = () => {
           <input
             type="radio"
             value="done"
-            checked={isDoneFilter === 'done'}
+            checked={setIsDoneFilter === 'done'}
             onChange={() => setIsDoneFilter('done')}
           />
           Done Tasks Only
@@ -34,7 +34,7 @@ const ListTask = () => {
           <input
             type="radio"
             value="not-done"
-            checked={isDoneFilter === 'not-done'}
+            checked={setIsDoneFilter === 'not-done'}
             onChange={() => setIsDoneFilter('not-done')}
           />
           Not Done Tasks Only

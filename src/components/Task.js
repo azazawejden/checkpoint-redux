@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
-import { toggleTask, deleteTask } from '../redux/actions';
+import { editTask, toggleTask } from '../js/actions/taskActions';
 
 const Task = ({ task }) => {
   const dispatch = useDispatch();
@@ -10,7 +10,7 @@ const Task = ({ task }) => {
   }
 
   const handleDelete = () => {
-    dispatch(deleteTask(task.id));
+    // dispatch(deleteTask(task.id));
   }
 
   return (
